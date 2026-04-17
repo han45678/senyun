@@ -14,6 +14,7 @@
     <S1 />
     <S2 />
     <S3 />
+    <S4 />
     
     <!-- <S2v /> -->
   <!--
@@ -90,11 +91,8 @@ import info from "@/info"
 import S1 from "@/section/s1.vue"
 import S2 from "@/section/s2.vue"
 import S3 from "@/section/s3.vue"
-// import S2v from "@/section/s2v.vue"
-// import S11 from "@/section/s11.vue"
-/* 
-import S2 from "@/section/s2.vue"
-import S3 from "@/section/s3.vue" */
+import S4 from "@/section/s4.vue"
+
 import Order from "@/section/order.vue"
 import Nav from "@/layout/navbar.vue"
 import { onMounted, ref } from "vue"
