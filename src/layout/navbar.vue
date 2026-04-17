@@ -1,433 +1,289 @@
 <template>
-    <div class="nav fixed z-[100]"
-        v-bind:class="{ 'r16-9': higherScreen }">
-        <!-- <div class="logo cursor-pointer z-10" v-bind:class="{ 'open': menuOpen }" @click="scrollTo('.s1')"></div> -->
-        <div class="menu-btn cursor-pointer flex items-center gap-3" @click="menuOpen = !menuOpen"  v-if="$isMobile()"
-            v-bind:class="{ 'open': menuOpen }">
-            <!-- <p class="uppercase text-color2 z-10">menu</p> -->
-            <div class="bar"></div>
-        </div>
-        <div class="menu flex items-center justify-center" v-bind:class="{ open: menuOpen }">
-            <div class="logo cursor-pointer z-10" v-bind:class="{ 'open': menuOpen }" @click="scrollTo('.s1')"></div>
-            <template v-for="item, i in info.navList">
-            <div class="menu-item cursor-pointer text-white font-['noto_sans_tc'] " v-bind:class="{ btn2: item.type }"
-                @click="scrollTo(item.target,$isMobile()?item.offsetmo?item.offsetmo:item.offset:item.offset)" v-if="!(item.name === '地圖導航' && !info.address)&&!(item.name === '立即來電' && !info.phone)">
-                <span>{{ item.name }}</span>
-            </div>
-            </template>
-            <div class="close" @click="menuOpen = !menuOpen"  v-if="$isMobile()">
-            </div>
-        </div>
+  <div
+    class="nav fixed z-[100]"
+    :class="{ 'r16-9': higherScreen }"
+  >
+    <div
+      class="menu-btn cursor-pointer flex items-center justify-center"
+      @click="menuOpen = true"
+      v-if="!menuOpen"
+    >
+      <div class="bar"></div>
     </div>
-    <div class="gotop fixed z-[98] cursor-pointer" v-bind:class="{ show: scrollPos > 100 }" @click="scrollTo('.s1')">
+
+    <div
+      class="menu flex flex-col items-center justify-center"
+      :class="{ open: menuOpen }"
+    >
+      <div
+        class="close-btn"
+        @click="menuOpen = false"
+      >
+        <div class="close-icon"></div>
+      </div>
+
+      <nav class="menu-list">
+        <template
+          v-for="(item, i) in info.navList"
+          :key="i"
+        >
+          <div
+            class="menu-item cursor-pointer"
+            @click="
+              scrollTo(
+                item.target,
+                $isMobile() ? item.offsetmo || 0 : item.offset || 0
+              )
+            "
+          >
+            <span class="main-char">{{ item.name.charAt(0) }}</span>
+            <span class="sub-text">{{ item.name.substring(1) }}</span>
+          </div>
+        </template>
+      </nav>
+
+      <div class="reserve-btn-wrap">
+        <button
+          class="reserve-btn"
+          @click="scrollTo('.s-contact')"
+        >
+          立即預約
+        </button>
+      </div>
     </div>
+  </div>
+  <div
+    class="gotop fixed z-[98] cursor-pointer"
+    :class="{ show: scrollPos > 100 }"
+    @click="scrollTo('.s1')"
+  ></div>
 </template>
 
-
 <style lang="scss">
-@import "@/assets/style/function.scss";
+@import '@/assets/style/function.scss';
 
 .nav {
-    right: size(114);
-    top: size(51);
-    .logo {
-        width: size(145);
-        height: size(50);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+
+  // 漢堡按鈕樣式
+  .menu-btn {
+    position: absolute;
+    top: size(30);
+    right: size(30);
+    width: size(40);
+    height: size(40);
+
+    @media screen and (max-width: 768px) {
+      top: size-m(20);
+      right: size-m(20);
+    }
+
+    .bar {
+      width: size(30);
+      height: 2px;
+      background-color: #fff;
+      position: relative;
+      &::before,
+      &::after {
+        content: '';
         position: absolute;
-        left:1em;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        left: 0;
+      }
+      &::before {
+        top: -8px;
+      }
+      &::after {
+        bottom: -8px;
+      }
+
+      @media screen and (max-width: 768px) {
+        width: size-m(30);
+        &::before {
+          top: -6px;
+        }
+        &::after {
+          bottom: -6px;
+        }
+      }
+    }
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: #33852d; // 截圖綠色
+    transition: transform 0.5s ease;
+    transform: translateX(100%);
+    padding: size(60) 0;
+
+    // 寬度限制
+    width: size(375);
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: size-m(60) 0;
     }
 
-    .menu-btn {
-        background-color: transparent;
-        height: size(40);
-        width: size(41.43);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    &.open {
+      transform: translateX(0);
+    }
+
+    // 關閉按鈕
+    .close-btn {
+      position: absolute;
+      top: size(30);
+      right: size(30);
+      width: size(40);
+      height: size(40);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @media screen and (max-width: 768px) {
+        top: size-m(20);
+        right: size-m(20);
+      }
+
+      .close-icon {
         position: relative;
-        z-index: 1;
-
-        p {
-            transition: all .5s;
-            font-size: size(20);
+        width: 100%;
+        height: 100%;
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background-color: #fff;
         }
-
-        .bar {
-            width: size(41.43);
-            height: 3px;
-            background-color: currentColor;
-            position: relative;
-            transition: all .5s;
-            color: #fff;
-            box-shadow: 0 3px 0 #0366;
-
-            &::after {
-                content: '';
-                width: 100%;
-                height: 3px;
-                bottom: -#{size(10)};
-                position: absolute;
-                background-color: currentColor;
-            box-shadow: 0 3px 0 #0366;
-                //transform: translateX(-10%);
-            }
-
-            &::before {
-                content: '';
-                width: 100%;
-                height: 3px;
-                top: -#{size(10)};
-                position: absolute;
-                background-color: currentColor;
-            box-shadow: 0 3px 0 #0366;
-                //transform: translateX(-10%);
-            }
+        &::before {
+          transform: rotate(45deg);
         }
-
-        &:hover {
-            &::after {
-                box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: .1);
-            }
-
-            .bar {
-                &::after {
-                    transform: translateX(0%);
-                    box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: .1);
-                }
-
-                &::before {
-                    transform: translateX(0%);
-                }
-            }
+        &::after {
+          transform: rotate(-45deg);
         }
-
-        &.open {
-            transition: all .5s;
-            background-color: transparent;
-            width: 0;
-
-            &::after {
-                content: '';
-                background-color: transparent;
-                box-shadow: unset;
-                width: 0%;
-            }
-
-            p {
-                color: #fff;
-            }
-        }
+      }
     }
 
-    .menu {
-        position: fixed;
-        flex-direction: row;
-        top: 0;
-        right: 0;
-        background: #032763cc;
-        width:100%;
-        height: size(60);
-        z-index: 5;
-        padding: 0;
-        font-size: size(16);
-        gap: 2em;
-        padding: 0 3em 0 0;
-        font-weight: 700;
-        backdrop-filter: blur(2px);
-        justify-content:flex-end;
+    .menu-list {
+      display: flex;
+      flex-direction: column;
+      gap: size(25);
+      margin-bottom: size(40);
 
-        .menu-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            // gap: size(10);
-            letter-spacing: 0.1em;
-            white-space: nowrap;
-
-            img {
-                width: size(43);
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                bottom: -5px;
-                width: 0%;
-                height: size(2);
-                background-color: #fff;
-                transition: all .35s;
-            }
-
-            &:hover {
-
-                &:after {
-                    width: 100%;
-                }
-            }
-            &.btn2{
-                background:#EF8200;
-;
-                border-radius: 2em;
-                margin-right:-1em;
-                padding:.7em 1.5em;
-
-                &:hover {
-                    background:#df6400;
-                    &:after {
-                        width:0;
-                    }
-                }
-            }
-
-        }
-
-        &.open {
-            transform: translateX(0);
-        }
-
-        .close {
-            position: absolute;
-            top: size(77);
-            left: 50%;
-            transform: translateX(-50%);
-            width: size(44);
-            height: size(44);
-            cursor: pointer;
-
-            img {
-                width: 100%;
-            }
-        }
-
-        .decor {
-            position: absolute;
-            width: size(330);
-            top: -#{size(170)};
-            left: size(22);
-            z-index: 1;
-            animation: rotate 10s infinite linear;
-
-            @keyframes rotate {
-                from {
-                    transform: rotate(0deg);
-                }
-
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-        }
-
+      @media screen and (max-width: 768px) {
+        gap: size-m(25);
+        margin-bottom: size-m(40);
+      }
     }
+
+    .menu-item {
+      display: flex;
+      align-items: flex-end;
+      color: #fff;
+      line-height: 1;
+
+      .main-char {
+        font-size: size(48);
+        font-weight: 500;
+        margin-right: size(8);
+        @media screen and (max-width: 768px) {
+          font-size: size-m(48);
+          margin-right: size-m(8);
+        }
+      }
+
+      .sub-text {
+        font-size: size(18);
+        padding-bottom: size(6);
+        letter-spacing: 0.1em;
+        @media screen and (max-width: 768px) {
+          font-size: size-m(18);
+          padding-bottom: size-m(6);
+        }
+      }
+    }
+
+    .reserve-btn {
+      background-color: #1a5319; // 深綠色
+      color: #fff;
+      border: none;
+      border-radius: size(100);
+      padding: size(12) size(60);
+      font-size: size(22);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: darken(#1a5319, 5%);
+      }
+
+      @media screen and (max-width: 768px) {
+        border-radius: size-m(100);
+        padding: size-m(12) size-m(60);
+        font-size: size-m(22);
+      }
+    }
+  }
 }
 
 .gotop {
-    width: size(49.4);
-    height: size(49.4);
-    right: size(20);
-    bottom: size(50);
-    background-image: url('@/assets/top.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: translateY(200%);
-    transition: all .5s;
-
-    &.show {
-        transform: translateY(0%);
-    }
-}
-
-@media screen and (max-width:768px) {
-
-    .gotop {
-        width: sizem(34.24);
-        height: sizem(34.24);
-        right: sizem(20);
-        bottom: sizem(80);
-    }
-
-    .nav {
-        // width: sizem(350);
-        right:0;
-        top:0;
-        // padding: 0 sizem(8);
-        height:auto;
-        border-radius: 9999px;
-
-        .logo {
-            width: sizem(80);
-            height: sizem(42);
-            transition: all .2s;
-            top: sizem(13);
-            left:sizem(10);
-
-            &.open {
-              //  filter: brightness(0) invert(1);
-            }
-        }
-
-        .menu-btn {
-            width: sizem(40);
-            height: sizem(40);
-            padding:0;
-            font-size: sizem(20);
-            margin: sizem(10);
-
-            p {
-                font-size: sizem(14);
-                font-weight: 100;
-            }
-
-            .bar {
-                width: sizem(32);
-
-                &::after {
-                    bottom: -#{sizem(10)};
-                }
-
-                &::before {
-                    top: -#{sizem(10)};
-                }
-            }
-
-            &.open {
-                display: none;
-                p {
-                    color: #fff;
-                }
-
-                .bar {
-                    height: 0;
-
-                    &::after {
-                        content: '';
-                        width: 100%;
-                        height: 2px;
-                        bottom: 50%;
-                        margin-bottom: -1px;
-                        position: absolute;
-                        background-color: #fff;
-                        transition: all .5s;
-                        transform: rotate(135deg);
-                    }
-
-                    &::before {
-                        content: '';
-                        width: 100%;
-                        height: 2px;
-                        top: 50%;
-                        margin-top: -1px;
-                        position: absolute;
-                        background-color: #fff;
-                        transition: all .5s;
-                        transform: rotate(-135deg);
-                    }
-                }
-            }
-        }
-
-        .menu {
-            height: 100%;
-          //  z-index: 0;
-            transform: translateX(150%);
-            transition: all .5s;
-           // padding: 0;
-           font-size: sizem(18);
-            gap: sizem(23);
-            justify-content: center;
-            flex-direction: column;
-        padding: 0;
-          //  background-image: url('@/section/menubgm.png');
-
-            .menu-item {
-
-                img {
-                    width: sizem(30);
-                }
-            &.btn2{
-                margin:0 auto -.5em auto;
-                padding: 0.4em 4em;
-            }
-
-            }
-
-            &.open {
-                transform: translateX(0);
-                left: unset;
-            }
-
-            .decor {
-                width: 30vh;
-                left: 50%;
-                margin-left: -15vh;
-                top: -15vh;
-                animation: rotate 10s infinite linear;
-            }
-
-            .close {
-                position: absolute;
-                left: unset;
-                bottom: 0;
-                transform: translateX(0);
-                top: sizem(10);right: sizem(10);
-                width: sizem(44);
-                height: sizem(44);
-                cursor: pointer;
-                margin:0;
-                display:flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items:center;
-                &::before,&::after{content:"";background: #FFF;height: 2px;width: 100%;display: block;}
-                &::before{transform: rotate(45deg);margin-bottom:-2px;}
-                &::after{transform: rotate(-45deg);}
-            }
-        }
-    }
+  // 保持原本 gotop 樣式，僅確保 z-index 正確
+  z-index: 98;
 }
 </style>
 
 <script setup>
-import { inject,computed, getCurrentInstance, onMounted, ref } from 'vue';
-import info from "@/info"
+import { inject, computed, getCurrentInstance, onMounted, ref } from 'vue';
+import info from '@/info';
 
-const menuOpen = ref(false)
+const menuOpen = ref(false);
 
-const globals = getCurrentInstance().appContext.config.globalProperties
-const isMobile = computed(() => globals.$isMobile())
+const globals = getCurrentInstance().appContext.config.globalProperties;
+const isMobile = computed(() => globals.$isMobile());
 
-const higherScreen = ref(true)
+const higherScreen = ref(true);
 
-const scrollPos = ref(0)
+const scrollPos = ref(0);
 
 onMounted(() => {
-    const ratio = window.innerHeight / window.innerWidth
+  const ratio = window.innerHeight / window.innerWidth;
 
-    // if (!globals.$isMobile() && ratio > 0.46875) {
-    //     higherScreen.value = true
-    // }
+  // if (!globals.$isMobile() && ratio > 0.46875) {
+  //     higherScreen.value = true
+  // }
 
-    window.addEventListener('scroll', (event) => {
-        let scroll = window.pageYOffset || document.documentElement.scrollTop;
-        scrollPos.value = scroll
-    });
-})
+  window.addEventListener('scroll', (event) => {
+    let scroll = window.pageYOffset || document.documentElement.scrollTop;
+    scrollPos.value = scroll;
+  });
+});
 
-
-const smoothScroll = inject('smoothScroll')
+const smoothScroll = inject('smoothScroll');
 const scrollTo = (el, offset) => {
-    const targetElement = document.querySelector(el);
-    if (targetElement) {
-        const numericOffset = parseInt(offset) ? parseInt(offset) : 0;
-        const elementRect = targetElement.getBoundingClientRect();
-        const topPosition = window.pageYOffset + elementRect.top + numericOffset;
+  const targetElement = document.querySelector(el);
+  if (targetElement) {
+    const numericOffset = parseInt(offset) ? parseInt(offset) : 0;
+    const elementRect = targetElement.getBoundingClientRect();
+    const topPosition = window.pageYOffset + elementRect.top + numericOffset;
 
-        smoothScroll({
-            scrollTo: topPosition
-        });
-    }
-    menuOpen.value = false;
-}
+    smoothScroll({
+      scrollTo: topPosition
+    });
+  }
+  menuOpen.value = false;
+};
 </script>

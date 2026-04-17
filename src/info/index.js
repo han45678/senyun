@@ -60,18 +60,35 @@ export default {
   },
 
     navList: [
-        /*
         {
-            name: "雙核心地段",
+            name: "運樞紐動能",
             target: ".s3",
             offset: "-60",
             offsetmo: "0",
-        },{
-            name: "交通中軸",
+        },
+        {
+            name: "孕永續基因",
+            target: ".s4",
+            offset: "-60",
+            offsetmo: "0",
+        },
+        {
+            name: "醞智感生活",
+            target: ".s3",
+            offset: "-60",
+            offsetmo: "0",
+        },
+        {
+            name: "藴未來之境",
+            target: ".s4",
+            offset: "-60",
+            offsetmo: "0",
+        },
+        {
+            name: "韻美學共生",
             target: ".s4",
             offset: "-60",
             offsetmo: "0",
         }
-    */
     ],
 }
