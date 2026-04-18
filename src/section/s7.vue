@@ -16,18 +16,25 @@ const isMobile = computed(() => globals.$isMobile());
 // 數據定義
 const conceptData = [
   {
-    tagName: '銅級綠建築規劃',
-    img: new URL('./s5/1.jpg', import.meta.url).href
+    tagName: 'eTag+車牌辨識系統',
+    img: new URL('./s7/1.jpg', import.meta.url).href
   },
   {
-    tagName: '20%EV礦石級匯流排',
-    img: new URL('./s5/2.jpg', import.meta.url).href
+    tagName: '門禁影像監控系統',
+    img: new URL('./s7/2.jpg', import.meta.url).href
   },
   {
-    tagName: 'EMS能源管理系統',
-    img: new URL('./s5/3.jpg', import.meta.url).href
+    tagName: 'SYR雲端智控濾水',
+    img: new URL('./s7/3.jpg', import.meta.url).href
   },
-  { tagName: '節能膠合玻璃', img: new URL('./s5/4.jpg', import.meta.url).href }
+  {
+    tagName: '玄關電子門鎖',
+    img: new URL('./s7/4.jpg', import.meta.url).href
+  },
+  {
+    tagName: '智能一鍵控光',
+    img: new URL('./s7/5.jpg', import.meta.url).href
+  }
 ];
 
 // 監聽 activeIndex，處理標籤自動置中
@@ -67,12 +74,12 @@ const slideTo = (index) => {
     <div class="container relative">
       <div class="title font-['Noto_Sans_TC']">
         <h2>
-          <span>孕</span>
-          永續基因
+          <span>醞</span>
+          智感生活
         </h2>
-        <h3>建築規劃・永續綠建築</h3>
+        <h3>智慧家居・數位守護</h3>
         <p>
-          孕育家，也孕育未來，永續是寫給下一代的責任<br />從居家節能到森態呼吸，讓家成為最好的土壤
+          一次次車道開啟，家知道你回來，一滴滴純淨的水，是家的輕柔問候<br />每一個智慧細節，讓您安心依靠，感受美好
         </p>
       </div>
       <div class="header-content">
@@ -81,6 +88,13 @@ const slideTo = (index) => {
             class="tags-grid"
             ref="tagsGrid"
           >
+
+          <div
+              class="tag-item font-['Noto_Sans_TC']"
+              style="border: none; cursor: default;"
+            >
+              GREEN FUTURE
+            </div>
             <div
               v-for="(item, index) in conceptData"
               :key="index"
@@ -166,7 +180,7 @@ const slideTo = (index) => {
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-image: url(./s5/bg.jpg);
+    background-image: url(./s7/bg.jpg);
   }
 
   .container {
@@ -285,7 +299,7 @@ const slideTo = (index) => {
         gap: sizem(10);
 
         @media screen and (min-width: 768px) {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: size(30);
         }
 
