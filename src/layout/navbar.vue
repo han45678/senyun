@@ -78,8 +78,8 @@
     height: size(40);
 
     @media screen and (max-width: 768px) {
-      top: size-m(20);
-      right: size-m(20);
+      top: sizem(20);
+      right: sizem(20);
     }
 
     .bar {
@@ -104,7 +104,7 @@
       }
 
       @media screen and (max-width: 768px) {
-        width: size-m(30);
+        width: sizem(30);
         &::before {
           top: -6px;
         }
@@ -129,7 +129,7 @@
     width: size(375);
     @media screen and (max-width: 768px) {
       width: 100%;
-      padding: size-m(60) 0;
+      padding: sizem(60) 0;
     }
 
     &.open {
@@ -149,8 +149,8 @@
       justify-content: center;
 
       @media screen and (max-width: 768px) {
-        top: size-m(20);
-        right: size-m(20);
+        top: sizem(20);
+        right: sizem(20);
       }
 
       .close-icon {
@@ -183,8 +183,8 @@
       margin-bottom: size(40);
 
       @media screen and (max-width: 768px) {
-        gap: size-m(25);
-        margin-bottom: size-m(40);
+        gap: sizem(25);
+        margin-bottom: sizem(40);
       }
     }
 
@@ -199,8 +199,8 @@
         font-weight: 500;
         margin-right: size(8);
         @media screen and (max-width: 768px) {
-          font-size: size-m(48);
-          margin-right: size-m(8);
+          font-size: sizem(48);
+          margin-right: sizem(8);
         }
       }
 
@@ -209,8 +209,8 @@
         padding-bottom: size(6);
         letter-spacing: 0.1em;
         @media screen and (max-width: 768px) {
-          font-size: size-m(18);
-          padding-bottom: size-m(6);
+          font-size: sizem(18);
+          padding-bottom: sizem(6);
         }
       }
     }
@@ -232,9 +232,9 @@
       }
 
       @media screen and (max-width: 768px) {
-        border-radius: size-m(100);
-        padding: size-m(12) size-m(60);
-        font-size: size-m(22);
+        border-radius: sizem(100);
+        padding: sizem(12) sizem(60);
+        font-size: sizem(22);
       }
     }
   }

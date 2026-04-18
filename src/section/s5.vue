@@ -379,10 +379,10 @@ const slideTo = (index) => {
     animation: floating 4.8s ease-in-out infinite;
 
     @media (max-width: 768px) {
-      width: size-m(67.95);
-      height: size-m(67.93);
-      top: size-m(220.34);
-      left: size-m(269.11);
+      width: sizem(67.95);
+      height: sizem(67.93);
+      top: sizem(220.34);
+      left: sizem(269.11);
     }
   }
 
@@ -398,10 +398,10 @@ const slideTo = (index) => {
     animation: floating 6.2s ease-in-out infinite;
 
     @media (max-width: 768px) {
-      width: size-m(80.7);
-      height: size-m(80.68);
-      top: size-m(310.85);
-      left: size-m(27.61);
+      width: sizem(80.7);
+      height: sizem(80.68);
+      top: sizem(310.85);
+      left: sizem(27.61);
     }
   }
 
@@ -412,10 +412,10 @@ const slideTo = (index) => {
     @media (max-width: 768px) {
       display: block;
       position: absolute;
-      width: size-m(32.17);
-      height: size-m(32.16);
-      top: size-m(120.35);
-      left: size-m(93.93);
+      width: sizem(32.17);
+      height: sizem(32.16);
+      top: sizem(120.35);
+      left: sizem(93.93);
       opacity: 1;
       background: linear-gradient(109.22deg, #52D300 10.73%, rgba(80, 205, 0, 0) 89.26%);
       animation: floating 5.2s ease-in-out infinite;

@@ -9,7 +9,7 @@
     <img class="w-32" src="//h35.banner.tw/img//loading_w.gif" alt="loading" srcset="">
   </div>
   <!--loading end-->
-   <Nav v-if="info.navList.length > 0" />
+  <Nav v-if="info.navList.length > 0" />
   <div class="home overflow-hidden font-['Noto_Sans_TC',sans-serif] bg-[#fff] text-[#000]">
     <S1 />
     <S2 />
@@ -18,23 +18,7 @@
     <S5 />
     <S6 />
     <S7 />
-    <!-- <S2v /> -->
-  <!--
-    <S4 />
-    <S5 />
-    
-    <S7 />
     <S8 />
-    <S9 />
-    <S10 />
-    <S11 />
-    <div class="bg">
-      <img src="@/section/s1/bg.jpg" />
-      <img src="@/section/s1/bg.jpg" />
-      <img src="@/section/s1/bg.jpg" />
-    </div>
-    <S1new />
-    <S1new2 /> -->
     <Order />
   </div>
 </template>
@@ -97,6 +81,7 @@ import S4 from "@/section/s4.vue"
 import S5 from "@/section/s5.vue"
 import S6 from "@/section/s6.vue"
 import S7 from "@/section/s7.vue"
+import S8 from "@/section/s8.vue"
 
 import Order from "@/section/order.vue"
 import Nav from "@/layout/navbar.vue"
