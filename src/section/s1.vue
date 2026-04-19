@@ -5,13 +5,13 @@
   >
     <video
       class="bg-video"
-      src="https://www.w3schools.com/html/mov_bbb.mp4"
+      poster="./s1/bg.png"
       autoplay
       loop
       muted
       playsinline
     ></video>
-    <img
+    <!-- <img
       src="./s1/slogo.svg"
       class="slogo"
       alt="logo"
@@ -24,7 +24,7 @@
       alt="logo"
       data-aos="zoom-in"
       data-aos-delay="500"
-    />
+    /> -->
   </article>
 </template>
 
@@ -39,6 +39,9 @@
 
 .s1 {
   @apply relative;
+
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
