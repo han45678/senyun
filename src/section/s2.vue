@@ -130,7 +130,7 @@
         font-size: size(33);
         line-height: 1.3;
         text-align: center;
-        margin-top: 0;
+        margin-top: size(50);
       }
 
       span {

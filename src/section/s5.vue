@@ -162,7 +162,7 @@ const slideTo = (index) => {
   background-color: #fff;
   position: relative;
   background-position: center;
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
@@ -170,21 +170,22 @@ const slideTo = (index) => {
   }
 
   .container {
-    padding: sizem(30) 0;
+    padding: 0 0;
 
     @media screen and (min-width: 768px) {
-      max-width: 1300px;
+      max-width: size(1300);
       margin: 0 auto;
-      padding: size(50) size(30);
+      padding: 0 size(30);
     }
 
     .title {
       text-align: center;
       margin-bottom: sizem(30);
-
+      padding-top: sizem(30);
       @media screen and (min-width: 768px) {
         text-align: left;
         margin-bottom: size(40);
+        padding-top: size(50);
       }
 
       h2 {
@@ -197,9 +198,9 @@ const slideTo = (index) => {
 
         
         @media screen and (min-width: 768px) {
-          padding-bottom: size(120);
+          padding-bottom: size(100);
           font-size: size(33);
-          line-height: 1.3;
+          line-height: 0.7;
         }
 
         span {
@@ -230,7 +231,7 @@ const slideTo = (index) => {
             height: size(80);
             right: auto;
             left: size(62);
-            bottom: size(10);
+            bottom: size(5);
           }
         }
       }
@@ -321,9 +322,11 @@ const slideTo = (index) => {
     .slider-wrapper {
       padding: 0 sizem(30);
       transform: scale(0.9);
+      padding-bottom: sizem(30);
       @media screen and (min-width: 768px) {
         transform: unset;
         padding: 0;
+        padding-bottom: size(50);
       }
 
       .concept-swiper {
@@ -332,7 +335,7 @@ const slideTo = (index) => {
         overflow: visible; // 讓左右卡片露出來
 
         @media screen and (min-width: 768px) {
-          width: size(740);
+          width: size(680);
         }
       }
 
@@ -342,13 +345,13 @@ const slideTo = (index) => {
         .img-box {
           width: 100%;
           margin: 0 auto;
-          aspect-ratio: 740 / 500; // 保持圖片比例
+          // aspect-ratio: 740 / 500; // 保持圖片比例
           border-radius: sizem(5);
           overflow: hidden;
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
           @media screen and (min-width: 768px) {
-            border-radius: size(25);
+            border-radius: size(15);
             max-width: size(740); // 限制最大寬度
           }
 
