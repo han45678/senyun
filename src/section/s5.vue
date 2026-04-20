@@ -66,23 +66,40 @@ const slideTo = (index) => {
   <section class="s5 relative overflow-hidden">
     <div class="container relative">
       <div class="title font-['Noto_Sans_TC']">
-        <div  data-aos="zoom-in"
-        data-aos-delay="500">
-        <h2>
-          <span>孕</span>
-          永續基因
-        </h2></div>
-        <h3  data-aos="zoom-in"
-        data-aos-delay="500">建築規劃・永續綠建築</h3>
-        <p  data-aos="zoom-in"
-        data-aos-delay="500">
+        <div
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          <h2>
+            <span>孕</span>
+            永續基因
+          </h2>
+        </div>
+        <h3
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          建築規劃・永續綠建築
+        </h3>
+        <p
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           孕育家，也孕育未來，永續是寫給下一代的責任<br />從居家節能到森態呼吸，讓家成為最好的土壤
         </p>
-        <img class="en_title" src="./s7/en_title.svg" alt="en_title"  data-aos="zoom-in"
-        data-aos-delay="500">
+        <img
+          class="en_title"
+          src="./s7/en_title.svg"
+          alt="en_title"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        />
       </div>
-      <div class="header-content"  data-aos="zoom-in"
-        data-aos-delay="500">
+      <div
+        class="header-content"
+        data-aos="zoom-in"
+        data-aos-delay="500"
+      >
         <div class="tags-container">
           <div
             class="tags-grid"
@@ -112,18 +129,18 @@ const slideTo = (index) => {
             isMobile
               ? {
                   prev: {
-                    translate: ['-20%', 0, -200], // 只露出 20%，其餘 80% 壓在後面
+                    translate: ['-20%', 0, -200] // 只露出 20%，其餘 80% 壓在後面
                   },
                   next: {
-                    translate: ['20%', 0, -200],
+                    translate: ['20%', 0, -200]
                   }
                 }
               : {
                   prev: {
-                    translate: ['-80%', 0, -500], // 電腦版維持原樣
+                    translate: ['-80%', 0, -500] // 電腦版維持原樣
                   },
                   next: {
-                    translate: ['80%', 0, -500],
+                    translate: ['80%', 0, -500]
                   }
                 }
           "
@@ -158,6 +175,7 @@ const slideTo = (index) => {
     <div class="fs fs1" />
     <div class="fs fs2" />
     <div class="fs fs3" />
+    
   </section>
 </template>
 
@@ -203,7 +221,6 @@ const slideTo = (index) => {
         position: relative;
         padding-bottom: sizem(50);
 
-        
         @media screen and (min-width: 768px) {
           padding-bottom: size(100);
           font-size: size(33);
@@ -249,9 +266,9 @@ const slideTo = (index) => {
         font-size: sizem(14);
         line-height: 1.2;
         margin: sizem(15) auto;
-            writing-mode: vertical-lr;
+        writing-mode: vertical-lr;
         @media screen and (min-width: 768px) {
-              writing-mode: unset;
+          writing-mode: unset;
           font-size: size(33);
           line-height: 1.3;
           margin: size(20) 0;
@@ -269,16 +286,16 @@ const slideTo = (index) => {
         }
       }
 
-      .en_title{
+      .en_title {
         position: absolute;
         right: 0;
         left: 0;
         margin: auto;
         width: sizem(215);
         top: sizem(30);
-        @media screen and (min-width: 768px){
+        @media screen and (min-width: 768px) {
           right: 0;
-          left:unset;
+          left: unset;
           top: size(80);
           width: size(690);
         }
@@ -389,72 +406,85 @@ const slideTo = (index) => {
   }
 
   .fs {
-  border-radius: 50%;
-  position: absolute;
-
-  // 第一顆球
-  &1 {
+    border-radius: 50%;
     position: absolute;
-    width: size(264.88);
-    height: size(264.88);
-    top: size(176.78);
-    left: size(1592.97);
-    opacity: 1;
-    background: linear-gradient(145deg, #52D300 14.09%, rgba(80, 205, 0, 0) 85.88%); // 延用前組漸層設定
-    animation: floating 4.8s ease-in-out infinite;
 
-    @media (max-width: 768px) {
-      width: sizem(67.95);
-      height: sizem(67.93);
-      top: sizem(220.34);
-      left: sizem(269.11);
-    }
-  }
-
-  // 第二顆球
-  &2 {
-    position: absolute;
-    width: size(264.88);
-    height: size(264.88);
-    top: size(550.95);
-    left: size(89.01);
-    opacity: 1;
-    background: linear-gradient(322.79deg, #52D300 14.25%, rgba(80, 205, 0, 0) 85.62%);
-    animation: floating 6.2s ease-in-out infinite;
-
-    @media (max-width: 768px) {
-      width: sizem(80.7);
-      height: sizem(80.68);
-      top: sizem(310.85);
-      left: sizem(27.61);
-    }
-  }
-
-  // 第三顆球 (電腦版隱藏)
-  &3 {
-    display: none;
-
-    @media (max-width: 768px) {
-      display: block;
+    // 第一顆球
+    &1 {
       position: absolute;
-      width: sizem(32.17);
-      height: sizem(32.16);
-      top: sizem(120.35);
-      left: sizem(93.93);
+      width: size(264.88);
+      height: size(264.88);
+      top: size(176.78);
+      left: size(1592.97);
       opacity: 1;
-      background: linear-gradient(109.22deg, #52D300 10.73%, rgba(80, 205, 0, 0) 89.26%);
-      animation: floating 5.2s ease-in-out infinite;
+      background: linear-gradient(
+        145deg,
+        #52d300 14.09%,
+        rgba(80, 205, 0, 0) 85.88%
+      ); // 延用前組漸層設定
+      animation: floating 4.8s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        width: sizem(67.95);
+        height: sizem(67.93);
+        top: sizem(220.34);
+        left: sizem(269.11);
+      }
+    }
+
+    // 第二顆球
+    &2 {
+      position: absolute;
+      width: size(264.88);
+      height: size(264.88);
+      top: size(550.95);
+      left: size(89.01);
+      opacity: 1;
+      background: linear-gradient(
+        322.79deg,
+        #52d300 14.25%,
+        rgba(80, 205, 0, 0) 85.62%
+      );
+      animation: floating 6.2s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        width: sizem(80.7);
+        height: sizem(80.68);
+        top: sizem(310.85);
+        left: sizem(27.61);
+      }
+    }
+
+    // 第三顆球 (電腦版隱藏)
+    &3 {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+        position: absolute;
+        width: sizem(32.17);
+        height: sizem(32.16);
+        top: sizem(120.35);
+        left: sizem(93.93);
+        opacity: 1;
+        background: linear-gradient(
+          109.22deg,
+          #52d300 10.73%,
+          rgba(80, 205, 0, 0) 89.26%
+        );
+        animation: floating 5.2s ease-in-out infinite;
+      }
     }
   }
-}
 
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0px);
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-18px);
+    }
   }
-  50% {
-    transform: translateY(-18px);
-  }
-}
 }
 </style>

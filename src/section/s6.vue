@@ -29,6 +29,8 @@
         data-aos="zoom-in"
         data-aos-delay="500"
       />
+
+      <p class="txt font-['Noto_Sans_TC']">以上圖片為AI情境模擬。</p>
     </div>
     <div class="marquee-wrapper">
       <div class="marquee-content">
@@ -266,6 +268,27 @@ const closeModal = () => {
         right: unset;
         bottom: size(30);
         width: size(1000);
+      }
+    }
+
+    .txt {
+      position: absolute;
+      right: sizem(15);
+      bottom: sizem(15);
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: 0%;
+      text-align: right;
+      vertical-align: bottom;
+      font-size: sizem(12);
+      display: none;
+      z-index: 1;
+      @media screen and (min-width: 768px) {
+        right: size(15);
+        bottom: size(15);
+        font-size: size(12);
+        display: block;
       }
     }
   }

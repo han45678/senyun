@@ -27,6 +27,9 @@
     </div>
 
     <img class="en_title" src="./s8/en_title.svg" alt="en_title">
+
+    <p class="txt font-['Noto_Sans_TC']">外觀3D情境示意圖(包含外觀建材、植栽、地坪鋪面、周邊環境等)僅供參考。賣方於不違反廣告真實性條件下，保有調整與修改權。另因印刷色澤與完工實品會略有差異，最終仍以實際完工及現況為準。經紀業: 昌益房屋仲介事業股份有限公司</p>
+
   </article>
 </template>
 
@@ -151,5 +154,26 @@
       display: none;
     }
   }
+
+  .txt {
+      position: absolute;
+      left: sizem(15);
+      bottom: sizem(15);
+      color: #fff;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: 0%;
+      text-align: right;
+      vertical-align: bottom;
+      font-size: sizem(12);
+      display: none;
+      z-index: 1;
+      @media screen and (min-width: 768px) {
+        left: size(15);
+        bottom: size(15);
+        font-size: size(12);
+        display: block;
+      }
+    }
 }
 </style>
