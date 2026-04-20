@@ -72,8 +72,8 @@
   // 漢堡按鈕樣式
   .menu-btn {
     position: absolute;
-    top: size(30);
-    right: size(30);
+    top: size(20);
+    right: size(20);
     width: size(40);
     height: size(40);
 
@@ -83,7 +83,7 @@
     }
 
     .bar {
-      width: size(30);
+      width: size(35);
       height: 2px;
       background-color: #fff;
       position: relative;
@@ -97,10 +97,10 @@
         left: 0;
       }
       &::before {
-        top: -8px;
+        top: -12px;
       }
       &::after {
-        bottom: -8px;
+        bottom: -12px;
       }
 
       @media screen and (max-width: 768px) {

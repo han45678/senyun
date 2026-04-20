@@ -10,23 +10,39 @@
         src="./s2/title.svg"
         alt="title"
         class="title"
+        data-aos="zoom-in"
+        data-aos-delay="500"
       />
+
       <img
         src="./s2/en.svg"
         alt=""
         class="en_title pc"
+        data-aos="zoom-in"
+        data-aos-delay="500"
       />
       <img
         src="./s2/enm.svg"
         alt=""
         class="en_title mb"
+        data-aos="zoom-in"
+        data-aos-delay="500"
       />
-      <h2 class="font-['Noto_Sans_TC']">
-        <span>運</span>
-        樞紐動能
-      </h2>
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="500"
+      >
+        <h2 class="font-['Noto_Sans_TC']">
+          <span>運</span>
+          樞紐動能
+        </h2>
+      </div>
       <h3 class="font-['Noto_Sans_TC']">地段潛力・科三門戶</h3>
-      <p class="font-['Noto_Sans_TC']">
+      <p
+        class="font-['Noto_Sans_TC']"
+        data-aos="zoom-in"
+        data-aos-delay="500"
+      >
         以科三為名，定錨未來<br />
         以門戶之勢，串連生活<br />
         4500坪森態都芯<br />
@@ -110,6 +126,7 @@
       font-size: sizem(14.23);
       line-height: 1.2;
       margin-top: sizem(120);
+      letter-spacing: 0;
       position: relative;
       &::before {
         content: '';
@@ -141,7 +158,7 @@
         display: block;
         @media screen and (min-width: 768px) {
           font-size: size(125);
-          line-height: 1.3;
+          line-height: 1.2;
         }
       }
     }
@@ -154,6 +171,7 @@
       margin-right: auto;
       margin-top: sizem(40);
       margin-bottom: sizem(40);
+      letter-spacing: 0%;
 
       &::before {
         content: '';
@@ -177,7 +195,7 @@
         writing-mode: unset;
         font-size: size(33);
         text-align: center;
-        margin-top: size(30);
+        margin-top: size(50);
         margin-bottom: 0;
       }
     }

@@ -16,8 +16,10 @@
     <S3 />
     <S4 />
     <S5 />
-    <S6 />
-    <S7 />
+    <div class="flex flex-col-reverse md:flex-col">
+      <S6 />
+      <S7 />
+    </div>
     <S8 />
     <S9 />
     <Order />

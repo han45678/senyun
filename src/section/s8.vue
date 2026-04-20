@@ -11,7 +11,8 @@
       alt="bg"
     />
 
-    <div class="text">
+    <div class="text"  data-aos="zoom-in"
+        data-aos-delay="500">
       <h2>
         <span>韻</span>
         美學共生

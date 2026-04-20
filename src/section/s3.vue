@@ -7,6 +7,8 @@
       src="./s3/title.svg"
       alt="title"
       class="title"
+      data-aos="zoom-in"
+      data-aos-delay="500"
     />
 
     <div class="bg">

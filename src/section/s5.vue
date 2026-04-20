@@ -66,16 +66,23 @@ const slideTo = (index) => {
   <section class="s5 relative overflow-hidden">
     <div class="container relative">
       <div class="title font-['Noto_Sans_TC']">
+        <div  data-aos="zoom-in"
+        data-aos-delay="500">
         <h2>
           <span>孕</span>
           永續基因
-        </h2>
-        <h3>建築規劃・永續綠建築</h3>
-        <p>
+        </h2></div>
+        <h3  data-aos="zoom-in"
+        data-aos-delay="500">建築規劃・永續綠建築</h3>
+        <p  data-aos="zoom-in"
+        data-aos-delay="500">
           孕育家，也孕育未來，永續是寫給下一代的責任<br />從居家節能到森態呼吸，讓家成為最好的土壤
         </p>
+        <img class="en_title" src="./s7/en_title.svg" alt="en_title"  data-aos="zoom-in"
+        data-aos-delay="500">
       </div>
-      <div class="header-content">
+      <div class="header-content"  data-aos="zoom-in"
+        data-aos-delay="500">
         <div class="tags-container">
           <div
             class="tags-grid"
@@ -162,7 +169,7 @@ const slideTo = (index) => {
   background-color: #fff;
   position: relative;
   background-position: center;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
@@ -181,7 +188,7 @@ const slideTo = (index) => {
     .title {
       text-align: center;
       margin-bottom: sizem(30);
-      padding-top: sizem(30);
+      padding-top: sizem(100);
       @media screen and (min-width: 768px) {
         text-align: left;
         margin-bottom: size(40);
@@ -231,7 +238,7 @@ const slideTo = (index) => {
             height: size(80);
             right: auto;
             left: size(62);
-            bottom: size(5);
+            bottom: size(-5);
           }
         }
       }
@@ -259,6 +266,21 @@ const slideTo = (index) => {
         @media screen and (min-width: 768px) {
           font-size: size(26);
           line-height: 1.3;
+        }
+      }
+
+      .en_title{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: sizem(215);
+        top: sizem(30);
+        @media screen and (min-width: 768px){
+          right: 0;
+          left:unset;
+          top: size(80);
+          width: size(690);
         }
       }
     }

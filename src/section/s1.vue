@@ -40,6 +40,7 @@
 .s1 {
   @apply relative;
 
+  background: #fff;
   position: relative;
   z-index: 1;
   display: flex;

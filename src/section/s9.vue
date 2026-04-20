@@ -1,6 +1,8 @@
 <template>
   <article class="s9">
     <img
+     data-aos="zoom-in"
+        data-aos-delay="500"
       class="title"
       src="./s9/title.svg"
       alt="title"

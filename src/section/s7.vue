@@ -70,28 +70,49 @@ const slideTo = (index) => {
 </script>
 
 <template>
-  <section class="s5 relative overflow-hidden">
+  <section class="s7 relative overflow-hidden">
     <div class="container relative">
       <div class="title font-['Noto_Sans_TC']">
-        <h2>
+        <h2
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           <span>醞</span>
           智感生活
         </h2>
-        <h3>智慧家居・數位守護</h3>
-        <p>
+        <h3
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          智慧家居・數位守護
+        </h3>
+        <p
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           一次次車道開啟，家知道你回來，一滴滴純淨的水，是家的輕柔問候<br />每一個智慧細節，讓您安心依靠，感受美好
         </p>
+        <img
+          class="en_title"
+          src="./s5/en_title.svg"
+          alt="en_title"
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        />
       </div>
-      <div class="header-content">
+      <div
+        class="header-content"
+        data-aos="zoom-in"
+        data-aos-delay="500"
+      >
         <div class="tags-container">
           <div
             class="tags-grid"
             ref="tagsGrid"
           >
-
-          <div
+            <div
               class="tag-item font-['Noto_Sans_TC']"
-              style="border: none; cursor: default;"
+              style="border: none; cursor: default"
             >
               GREEN FUTURE
             </div>
@@ -119,18 +140,18 @@ const slideTo = (index) => {
             isMobile
               ? {
                   prev: {
-                    translate: ['-20%', 0, -200], // 只露出 20%，其餘 80% 壓在後面
+                    translate: ['-20%', 0, -200] // 只露出 20%，其餘 80% 壓在後面
                   },
                   next: {
-                    translate: ['20%', 0, -200],
+                    translate: ['20%', 0, -200]
                   }
                 }
               : {
                   prev: {
-                    translate: ['-80%', 0, -500], // 電腦版維持原樣
+                    translate: ['-80%', 0, -500] // 電腦版維持原樣
                   },
                   next: {
-                    translate: ['80%', 0, -500],
+                    translate: ['80%', 0, -500]
                   }
                 }
           "
@@ -171,12 +192,12 @@ const slideTo = (index) => {
 <style lang="scss" scoped>
 @import '@/assets/style/function.scss';
 
-.s5 {
+.s7 {
   width: 100%;
   background-color: #fff;
   position: relative;
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
@@ -184,21 +205,22 @@ const slideTo = (index) => {
   }
 
   .container {
-    padding: sizem(30) 0;
+    padding: 0 0;
 
     @media screen and (min-width: 768px) {
-      max-width: 1300px;
+      max-width: size(1300);
       margin: 0 auto;
-      padding: size(50) size(30);
+      padding: 0 size(30);
     }
 
     .title {
       text-align: center;
       margin-bottom: sizem(30);
-
+      padding-top: sizem(100);
       @media screen and (min-width: 768px) {
         text-align: left;
         margin-bottom: size(40);
+        padding-top: size(50);
       }
 
       h2 {
@@ -209,11 +231,10 @@ const slideTo = (index) => {
         position: relative;
         padding-bottom: sizem(50);
 
-        
         @media screen and (min-width: 768px) {
-          padding-bottom: size(120);
+          padding-bottom: size(100);
           font-size: size(33);
-          line-height: 1.3;
+          line-height: 0.7;
         }
 
         span {
@@ -244,7 +265,7 @@ const slideTo = (index) => {
             height: size(80);
             right: auto;
             left: size(62);
-            bottom: size(10);
+            bottom: size(-5);
           }
         }
       }
@@ -255,9 +276,9 @@ const slideTo = (index) => {
         font-size: sizem(14);
         line-height: 1.2;
         margin: sizem(15) auto;
-            writing-mode: vertical-lr;
+        writing-mode: vertical-lr;
         @media screen and (min-width: 768px) {
-              writing-mode: unset;
+          writing-mode: unset;
           font-size: size(33);
           line-height: 1.3;
           margin: size(20) 0;
@@ -272,6 +293,21 @@ const slideTo = (index) => {
         @media screen and (min-width: 768px) {
           font-size: size(26);
           line-height: 1.3;
+        }
+      }
+
+      .en_title {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: sizem(265);
+        top: sizem(30);
+        @media screen and (min-width: 768px) {
+          right: 0;
+          left: unset;
+          top: size(80);
+          width: size(845);
         }
       }
     }
@@ -335,9 +371,11 @@ const slideTo = (index) => {
     .slider-wrapper {
       padding: 0 sizem(30);
       transform: scale(0.9);
+      padding-bottom: sizem(30);
       @media screen and (min-width: 768px) {
         transform: unset;
         padding: 0;
+        padding-bottom: size(50);
       }
 
       .concept-swiper {
@@ -378,72 +416,85 @@ const slideTo = (index) => {
   }
 
   .fs {
-  border-radius: 50%;
-  position: absolute;
-
-  // 第一顆球
-  &1 {
+    border-radius: 50%;
     position: absolute;
-    width: size(264.88);
-    height: size(264.88);
-    top: size(176.78);
-    left: size(1592.97);
-    opacity: 1;
-    background: linear-gradient(145deg, #52D300 14.09%, rgba(80, 205, 0, 0) 85.88%); // 延用前組漸層設定
-    animation: floating 4.8s ease-in-out infinite;
 
-    @media (max-width: 768px) {
-      width: sizem(67.95);
-      height: sizem(67.93);
-      top: sizem(220.34);
-      left: sizem(269.11);
-    }
-  }
-
-  // 第二顆球
-  &2 {
-    position: absolute;
-    width: size(264.88);
-    height: size(264.88);
-    top: size(550.95);
-    left: size(89.01);
-    opacity: 1;
-    background: linear-gradient(322.79deg, #52D300 14.25%, rgba(80, 205, 0, 0) 85.62%);
-    animation: floating 6.2s ease-in-out infinite;
-
-    @media (max-width: 768px) {
-      width: sizem(80.7);
-      height: sizem(80.68);
-      top: sizem(310.85);
-      left: sizem(27.61);
-    }
-  }
-
-  // 第三顆球 (電腦版隱藏)
-  &3 {
-    display: none;
-
-    @media (max-width: 768px) {
-      display: block;
+    // 第一顆球
+    &1 {
       position: absolute;
-      width: sizem(32.17);
-      height: sizem(32.16);
-      top: sizem(120.35);
-      left: sizem(93.93);
+      width: size(264.88);
+      height: size(264.88);
+      top: size(176.78);
+      left: size(1592.97);
       opacity: 1;
-      background: linear-gradient(109.22deg, #52D300 10.73%, rgba(80, 205, 0, 0) 89.26%);
-      animation: floating 5.2s ease-in-out infinite;
+      background: linear-gradient(
+        145deg,
+        #52d300 14.09%,
+        rgba(80, 205, 0, 0) 85.88%
+      ); // 延用前組漸層設定
+      animation: floating 4.8s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        width: sizem(67.95);
+        height: sizem(67.93);
+        top: sizem(220.34);
+        left: sizem(269.11);
+      }
+    }
+
+    // 第二顆球
+    &2 {
+      position: absolute;
+      width: size(264.88);
+      height: size(264.88);
+      top: size(550.95);
+      left: size(89.01);
+      opacity: 1;
+      background: linear-gradient(
+        322.79deg,
+        #52d300 14.25%,
+        rgba(80, 205, 0, 0) 85.62%
+      );
+      animation: floating 6.2s ease-in-out infinite;
+
+      @media (max-width: 768px) {
+        width: sizem(80.7);
+        height: sizem(80.68);
+        top: sizem(310.85);
+        left: sizem(27.61);
+      }
+    }
+
+    // 第三顆球 (電腦版隱藏)
+    &3 {
+      display: none;
+
+      @media (max-width: 768px) {
+        display: block;
+        position: absolute;
+        width: sizem(32.17);
+        height: sizem(32.16);
+        top: sizem(120.35);
+        left: sizem(93.93);
+        opacity: 1;
+        background: linear-gradient(
+          109.22deg,
+          #52d300 10.73%,
+          rgba(80, 205, 0, 0) 89.26%
+        );
+        animation: floating 5.2s ease-in-out infinite;
+      }
     }
   }
-}
 
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0px);
+  @keyframes floating {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-18px);
+    }
   }
-  50% {
-    transform: translateY(-18px);
-  }
-}
 }
 </style>

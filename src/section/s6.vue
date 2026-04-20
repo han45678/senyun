@@ -2,12 +2,23 @@
   <section class="s6">
     <div class="top">
       <div class="text font-['Noto_Sans_TC']">
-        <h2>
+        <h2
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           <span>藴</span>
           未來之境
         </h2>
-        <h3>公設美學・全齡宜居</h3>
-        <p>
+        <h3
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
+          公設美學・全齡宜居
+        </h3>
+        <p
+          data-aos="zoom-in"
+          data-aos-delay="500"
+        >
           每個階段，都有家陪伴，孩子的笑，青年的夢<br />公設裡世代共融，翻開書頁，找到心的歸屬
         </p>
       </div>
@@ -15,6 +26,8 @@
         class="en_title"
         src="./s6/en_title.svg"
         alt="en_title"
+        data-aos="zoom-in"
+        data-aos-delay="500"
       />
     </div>
     <div class="marquee-wrapper">
@@ -246,8 +259,8 @@ const closeModal = () => {
       left: 0;
       right: 0;
       margin: auto;
-        bottom: sizem(5);
-        width: sizem(330);
+      bottom: sizem(5);
+      width: sizem(330);
       @media screen and (min-width: 768px) {
         left: size(50);
         right: unset;
