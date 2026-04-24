@@ -7,7 +7,7 @@
       src="./s3/title.svg"
       alt="title"
       class="title"
-      data-aos="zoom-in"
+      data-aos="fade-up"
       data-aos-delay="500"
     />
 
@@ -97,8 +97,25 @@
   .bg {
     position: relative;
     overflow: hidden;
-    width: 100%;
+    width: sizem(650);
+    left:sizem(-140);
     aspect-ratio: 1920 / 1110;
+    @media screen and (min-width: 768px) {
+    width: 100%;
+    left:0;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: sizem(50);
+      background:linear-gradient(180deg, #01ADF900 , #01ADF933 ,#01ADF9);
+    @media screen and (min-width: 768px) {
+      height: size(50);
+}
+    }
   }
   svg {
     width: 100%;

@@ -10,38 +10,40 @@
         src="./s2/title.svg"
         alt="title"
         class="title"
-        data-aos="zoom-in"
-        data-aos-delay="500"
+        data-aos="fade-up"
+        data-aos-delay="0"
       />
 
       <img
         src="./s2/en.svg"
         alt=""
         class="en_title pc"
-        data-aos="zoom-in"
-        data-aos-delay="500"
+        data-aos="fade-up"
+        data-aos-delay="200"
       />
       <img
         src="./s2/enm.svg"
         alt=""
         class="en_title mb"
-        data-aos="zoom-in"
-        data-aos-delay="500"
+        data-aos="fade-up"
+        data-aos-delay="400"
       />
       <div
-        data-aos="zoom-in"
-        data-aos-delay="500"
+        data-aos="fade-up"
+        data-aos-delay="600"
       >
         <h2 class="font-['Noto_Sans_TC']">
           <span>運</span>
           樞紐動能
         </h2>
       </div>
-      <h3 class="font-['Noto_Sans_TC']">地段潛力・科三門戶</h3>
+      <h3 class="font-['Noto_Sans_TC']"
+        data-aos="fade-up"
+        data-aos-delay="800">地段潛力・科三門戶</h3>
       <p
         class="font-['Noto_Sans_TC']"
-        data-aos="zoom-in"
-        data-aos-delay="500"
+        data-aos="fade-up"
+        data-aos-delay="1000"
       >
         以科三為名，定錨未來<br />
         以門戶之勢，串連生活<br />
@@ -72,7 +74,7 @@
   line-height: 1.6;
   letter-spacing: 0.1em;
   background-image: url(./s2/bgm.jpg);
-  background-size: 100% auto;
+  background-size: cover;
   background-position: 50% 50%;
   position: relative;
   @media screen and (min-width: 768px) {
@@ -100,7 +102,7 @@
 
     .en_title {
       width: sizem(250);
-      margin-top: sizem(50);
+      margin-top: sizem(110);
 
       &.pc {
         display: none;
@@ -132,7 +134,7 @@
         content: '';
         width: sizem(0.5);
         height: sizem(60);
-        background-color: #00ba00;
+        background-color: #00ba0099;
         position: absolute;
         left: 0;
         right: 0;
@@ -171,32 +173,16 @@
       margin-right: auto;
       margin-top: sizem(40);
       margin-bottom: sizem(40);
-      letter-spacing: 0%;
+      letter-spacing: 0.3em;
 
-      &::before {
-        content: '';
-        width: sizem(0.5);
-        height: sizem(60);
-        background-color: #00ba00;
-        position: absolute;
-        left: 0;
-        right: 0;
-        margin: auto;
-        bottom: sizem(-100);
-
-        @media screen and (min-width: 768px) {
-          width: size(0.5);
-          height: size(165);
-          bottom: size(-220);
-        }
-      }
 
       @media screen and (min-width: 768px) {
         writing-mode: unset;
         font-size: size(33);
         text-align: center;
         margin-top: size(50);
-        margin-bottom: 0;
+        margin-bottom: size(8);
+        letter-spacing: 0;
       }
     }
     p {
@@ -212,6 +198,23 @@
         line-height: 1.7;
       }
     }
+      &::before {
+        content: '';
+        width: sizem(0.5);
+        height: sizem(60);
+        background-color: #00ba0099;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: sizem(-100);
+
+        @media screen and (min-width: 768px) {
+          width: size(0.5);
+          height: size(165);
+          bottom: size(-220);
+        }
+      }
   }
 
   .fs {
@@ -232,13 +235,15 @@
         rgba(80, 205, 0, 0) 85.88%
       );
       opacity: 1;
-      animation: floating 4.2s ease-in-out infinite;
+      animation: floating 4.2s ease-in-out infinite alternate;
+      transform: translateY(50%);
 
       @media (max-width: 768px) {
         width: sizem(40.77);
         height: sizem(40.76);
         top: sizem(288.14);
         left: sizem(263.32);
+      transform: translateY(100%);
       }
     }
 
@@ -255,13 +260,15 @@
         rgba(80, 205, 0, 0) 85.62%
       );
       opacity: 1;
-      animation: floating 5.8s ease-in-out infinite;
+      animation: floating 5.8s ease-in-out infinite alternate;
+      transform: translateY(50%);
 
       @media (max-width: 768px) {
         width: sizem(54.1);
         height: sizem(54.09);
         top: sizem(426.52);
         left: sizem(51.96);
+      transform: translateY(100%);
       }
     }
 
@@ -278,24 +285,22 @@
         rgba(80, 205, 0, 0) 89.26%
       );
       opacity: 1;
-      animation: floating 7.5s ease-in-out infinite;
+      transform: translateY(50%);
+      animation: floating 9.5s ease-in-out infinite alternate;
 
       @media (max-width: 768px) {
         width: sizem(84.66);
         height: sizem(84.64);
         top: sizem(765.14);
         left: sizem(266.14);
+      transform: translateY(-100%);
       }
     }
   }
 
   @keyframes floating {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-15px);
+    to{
+      transform: translateY(0%);
     }
   }
 }

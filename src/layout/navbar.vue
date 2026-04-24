@@ -76,10 +76,13 @@
     right: size(20);
     width: size(40);
     height: size(40);
+    filter:drop-shadow(0px 2px 0 #028100c4);
 
     @media screen and (max-width: 768px) {
-      top: sizem(20);
-      right: sizem(20);
+      top: sizem(10);
+      right: sizem(15);
+    width: sizem(25);
+    height: sizem(30);
     }
 
     .bar {
@@ -149,8 +152,10 @@
       justify-content: center;
 
       @media screen and (max-width: 768px) {
-        top: sizem(20);
-        right: sizem(20);
+        top: sizem(10);
+        right: sizem(15);
+      width: sizem(25);
+      height: sizem(30);
       }
 
       .close-icon {

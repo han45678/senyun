@@ -3,8 +3,8 @@ export default {
   caseid: "1b27124e-650f-442e-9526-340f8146e83a", // 測試專案1d2db7f2-157b-4a33-acbc-f4abfde91846
     address1: "接待中心",//按鈕區的--- 如空白會只呈現地址
     address2: "接待中心",//map點下確認的--- 如空白會顯示"導航地址"
-    // address: "新竹市埔頂路125號旁",
-    googleSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3622.0057977027254!2d121.00936399999998!3d24.795254999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQ3JzQyLjkiTiAxMjHCsDAwJzMzLjciRQ!5e0!3m2!1szh-TW!2stw!4v1770875733105!5m2!1szh-TW!2stw",
+    address: "新竹市埔頂路125號旁",
+    googleSrc: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3622.0057977027254!2d121.00936399999998!3d24.795254999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDQ3JzQyLjkiTiAxMjHCsDAwJzMzLjciRQ!5e0!3m2!1szh-TW!2stw!4v1776936340799!5m2!1szh-TW!2stw",
     googleLink: "https://maps.app.goo.gl/npq1JaKkDg6pwvE17",
     phone: "03-5717088",
     fbLink: "https://www.facebook.com/61588073453303/",
@@ -62,32 +62,32 @@ export default {
     navList: [
         {
             name: "運樞紐動能",
-            target: ".s3",
-            offset: "-60",
+            target: ".s2",
+            offset: "0",
             offsetmo: "0",
         },
         {
             name: "孕永續基因",
-            target: ".s4",
-            offset: "-60",
+            target: ".s5",
+            offset: "0",
             offsetmo: "0",
         },
         {
             name: "醞智感生活",
-            target: ".s3",
-            offset: "-60",
+            target: ".s6",
+            offset: "0",
             offsetmo: "0",
         },
         {
             name: "藴未來之境",
-            target: ".s4",
-            offset: "-60",
+            target: ".s7",
+            offset: "0",
             offsetmo: "0",
         },
         {
             name: "韻美學共生",
-            target: ".s4",
-            offset: "-60",
+            target: ".s8",
+            offset: "0",
             offsetmo: "0",
         }
     ],

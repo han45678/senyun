@@ -310,7 +310,7 @@
       gap: 1em;
 
       &:hover {
-        background: #0c0;
+        background: #196B19;
         color: #fff;
 
         img {
@@ -322,7 +322,7 @@
         max-width: size(27);
         height: auto;
         max-height: size(27);
-        filter:  invert(30%) sepia(26%) saturate(2642%) hue-rotate(123deg) brightness(98%) contrast(101%);
+        filter: invert(31%) sepia(12%) saturate(4096%) hue-rotate(76deg) brightness(95%) contrast(89%);
         transition: all .5s;
         margin: 0;
       }

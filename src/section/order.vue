@@ -147,7 +147,7 @@ $o-title-c:#077707; //.order-title
   position: relative;
   overflow: hidden;
   min-height: size(500);
-  background: linear-gradient(180deg, #fff0 0, #fff size(200), #fff size(220),#fff0 size(500));
+ // background: linear-gradient(180deg, #fff0 0, #fff size(200), #fff size(220),#fff0 size(500));
 
 }
 .order-title {
@@ -236,7 +236,7 @@ $o-title-c:#077707; //.order-title
   .send {
   font-size:20px;
     font-size:inherit;
-    background:#0c0;
+    background:#196B19;
 
     //border: 1px solid #FFF;
     border:0;
@@ -266,7 +266,7 @@ $o-title-c:#077707; //.order-title
   .order-section {
     min-height: sizem(800);
     position: relative;
-  background: linear-gradient(180deg, #fff sizem(70),#fff0 sizem(250));
+ // background: linear-gradient(180deg, #fff sizem(70),#fff0 sizem(250));
   }
 
 

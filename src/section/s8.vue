@@ -11,14 +11,17 @@
       alt="bg"
     />
 
-    <div class="text"  data-aos="zoom-in"
-        data-aos-delay="500">
-      <h2>
+    <div class="text"  data-aos="fade-up-right"
+        data-aos-delay="400">
+      <h2 data-aos="fade-up"
+          data-aos-delay="200">
         <span>韻</span>
         美學共生
       </h2>
-      <h3>藝術美學・大師鉅作</h3>
-      <p>
+      <h3 data-aos="fade-up"
+          data-aos-delay="400">藝術美學・大師鉅作</h3>
+      <p data-aos="fade-up"
+          data-aos-delay="600">
         美在肌理與光影之間<br />
         光影落下，建築呼吸<br />
         國際藝術大師-郭國相刻劃底藴<br />

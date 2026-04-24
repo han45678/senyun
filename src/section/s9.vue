@@ -15,8 +15,8 @@
 .s9 {
   position: relative;
   z-index: 1;
-  background-color: #fff;
-  height: sizem(375);
+// background-color: #fff;
+  height: sizem(240);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -16,9 +16,9 @@
     <S3 />
     <S4 />
     <S5 />
-    <div class="flex flex-col-reverse md:flex-col">
       <S6 />
       <S7 />
+    <div class="flex flex-col-reverse md:flex-col">
     </div>
     <S8 />
     <S9 />
@@ -101,7 +101,7 @@ onMounted(() => {
     AOS.init({
       offset: 0,
 		//	easing: 'ease-out-back',
-      duration: 1500
+      duration: 2000
     });
   };
 

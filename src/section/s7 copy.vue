@@ -2,30 +2,54 @@
   <section class="s7">
     <div class="top">
       <div class="text font-['Noto_Sans_TC']">
-        <h2 data-aos="fade-up" data-aos-delay="0">
+        <h2
+          data-aos="fade-up"
+          data-aos-delay="0"
+        >
           <span>藴</span>
           未來之境
         </h2>
-        <h3 data-aos="fade-up" data-aos-delay="200">
+        <h3
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           公設美學・全齡宜居
         </h3>
-        <p data-aos="fade-up" data-aos-delay="500">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="500"
+        >
           每個階段，都有家陪伴，孩子的笑，青年的夢<br />公設裡世代共融，翻開書頁，找到心的歸屬
         </p>
       </div>
-      <img class="en_title" src="./s7/en_title.svg" alt="en_title" data-aos="fade-up" data-aos-delay="400" />
+      <img
+        class="en_title"
+        src="./s7/en_title.svg"
+        alt="en_title"
+          data-aos="fade-up"
+        data-aos-delay="400"
+      />
 
       <p class="txt font-['Noto_Sans_TC']">以上圖片為AI情境模擬。</p>
     </div>
-    <div class="marquee-wrapper" @mousedown="onMouseDown" @mousemove="onMouseMove" @mouseup="onMouseUp"
-      @mouseleave="onMouseUp" @touchstart="onTouchStart" @touchmove="onTouchMove" @touchend="onMouseUp">
-      <div class="marquee-content" ref="contentRef" :style="{ transform: `translateX(${offset}px)` }"
-        @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-        <div v-for="i in 2" :key="i" class="marquee-group">
-          <div v-for="(item, index) in marqueeData" :key="`${i}-${index}`" class="marquee-item"
-            @click="openModal(item)">
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <div
+          v-for="i in 2"
+          :key="i"
+          class="marquee-group"
+        >
+          <div
+            v-for="(item, index) in marqueeData"
+            :key="`${i}-${index}`"
+            class="marquee-item"
+            @click="openModal(item)"
+          >
             <div class="img-box">
-              <img :src="item.thumb" :alt="item.name" />
+              <img
+                :src="item.thumb"
+                :alt="item.name"
+              />
             </div>
             <div class="info">
               <p class="name font-['Noto_Sans_TC']">{{ item.name }}</p>
@@ -37,15 +61,31 @@
     </div>
 
     <Transition name="fade">
-      <div v-if="isModalOpen" class="modal-mask" @click.self="closeModal">
+      <div
+        v-if="isModalOpen"
+        class="modal-mask"
+        @click.self="closeModal"
+      >
         <div class="modal-container">
-          <button class="close-btn" @click="closeModal">
-            <img src="./s7/close.svg" alt="close" />
+          <button
+            class="close-btn"
+            @click="closeModal"
+          >
+            <img
+              src="./s7/close.svg"
+              alt="close"
+            />
           </button>
 
-          <div class="modal-content" v-if="selectedItem">
+          <div
+            class="modal-content"
+            v-if="selectedItem"
+          >
             <div class="img-box">
-              <img :src="selectedItem.bigImg" :alt="selectedItem.name" />
+              <img
+                :src="selectedItem.bigImg"
+                :alt="selectedItem.name"
+              />
             </div>
             <div class="text-box">
               <h3>{{ selectedItem.name }}</h3>
@@ -67,7 +107,7 @@ const selectedItem = ref(null);
 const marqueeData = [
   {
     name: '紀伊國屋書店選冊',
-    area: '本圖片為AI情境模擬 以實際完工現況為準。<br>　',
+    area: '以上圖片為AI情境模擬<br>　',
     thumb: new URL('./s7/1.jpg', import.meta.url).href,
     bigImg: new URL('./s7/b1.jpg', import.meta.url).href
   },
@@ -99,83 +139,6 @@ const openModal = (item) => {
 const closeModal = () => {
   isModalOpen.value = false;
 };
-
-// ===== 跑馬燈 =====
-import { onMounted, onBeforeUnmount } from 'vue'
-
-const offset = ref(0)
-const speed = 0.5
-
-const contentRef = ref(null)
-let contentWidth = 0
-
-let rafId = null
-let isHover = false
-let isDragging = false
-
-let startX = 0
-let startOffset = 0
-
-const loop = () => {
-  if (!isHover && !isDragging) {
-    offset.value -= speed
-  }
-
-  if (Math.abs(offset.value) >= contentWidth / 2) {
-    offset.value = 0
-  }
-
-  rafId = requestAnimationFrame(loop)
-}
-
-// ===== 滑鼠 =====
-const onMouseDown = (e) => {
-  isDragging = true
-  startX = e.clientX
-  startOffset = offset.value
-}
-
-const onMouseMove = (e) => {
-  if (!isDragging) return
-  const delta = e.clientX - startX
-  offset.value = startOffset + delta
-}
-
-const onMouseUp = () => {
-  isDragging = false
-}
-
-// ===== 手機 =====
-const onTouchStart = (e) => {
-  isDragging = true
-  startX = e.touches[0].clientX
-  startOffset = offset.value
-}
-
-const onTouchMove = (e) => {
-  if (!isDragging) return
-  const delta = e.touches[0].clientX - startX
-  offset.value = startOffset + delta
-}
-
-// ===== hover =====
-const onMouseEnter = () => {
-  isHover = true
-}
-const onMouseLeave = () => {
-  isHover = false
-  isDragging = false
-}
-
-// ===== lifecycle =====
-onMounted(() => {
-  contentWidth = contentRef.value.scrollWidth
-  loop()
-})
-
-onBeforeUnmount(() => {
-  cancelAnimationFrame(rafId)
-})
 </script>
 
 <style lang="scss" scoped>
@@ -186,7 +149,7 @@ onBeforeUnmount(() => {
   overflow: hidden;
   background-color: #fff;
   position: relative;
-  // z-index: 1;
+ // z-index: 1;
 
   .top {
     height: sizem(550);
@@ -197,13 +160,11 @@ onBeforeUnmount(() => {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     @media screen and (min-width: 768px) {
       height: size(760);
       background-image: url(./s7/bg.jpg);
       margin-bottom: size(10);
     }
-
     .text {
       text-align: center;
       margin-bottom: sizem(30);
@@ -251,7 +212,6 @@ onBeforeUnmount(() => {
         font-size: sizem(14);
         line-height: 1.2;
         margin: sizem(15) auto;
-
         @media screen and (min-width: 768px) {
           font-size: size(33);
           line-height: 1.3;
@@ -264,7 +224,6 @@ onBeforeUnmount(() => {
         font-size: sizem(12);
         line-height: 1.7;
         color: #fff;
-
         @media screen and (min-width: 768px) {
           font-size: size(26);
           line-height: 1.3;
@@ -288,9 +247,11 @@ onBeforeUnmount(() => {
         height: size(885);
         top: size(-62);
         left: size(1127);
-        background: linear-gradient(90deg,
-            rgba(80, 205, 0, 0) 0%,
-            #52d300 100%);
+        background: linear-gradient(
+          90deg,
+          rgba(80, 205, 0, 0) 0%,
+          #52d300 100%
+        );
       }
     }
 
@@ -302,7 +263,6 @@ onBeforeUnmount(() => {
       margin: auto;
       bottom: sizem(5);
       width: sizem(330);
-
       @media screen and (min-width: 768px) {
         left: size(50);
         right: unset;
@@ -324,7 +284,6 @@ onBeforeUnmount(() => {
       font-size: sizem(12);
       display: none;
       z-index: 1;
-
       @media screen and (min-width: 768px) {
         right: size(15);
         bottom: size(15);
@@ -333,32 +292,25 @@ onBeforeUnmount(() => {
       }
     }
   }
-
   .marquee-wrapper {
     margin-bottom: sizem(5);
     display: flex;
-
     @media screen and (min-width: 768px) {
-
-      margin-bottom: size(10);
+      
+    margin-bottom: size(10);
     }
-
     .marquee-content {
       display: flex;
-      /*  animation: run 50s linear infinite;
-     &:hover {
+      animation: run 50s linear infinite;
+      &:hover {
         animation-play-state: paused;
       }
-      */
     }
-
     .marquee-group {
       display: flex;
     }
-
     .marquee-item {
       cursor: pointer;
-      user-select: none;
       margin-right: sizem(5);
       position: relative;
       flex: 0 0 100vw; // 手機版強制為 100% 視窗寬度
@@ -372,18 +324,13 @@ onBeforeUnmount(() => {
         position: relative;
         width: 100%;
         overflow: hidden;
-
         @media screen and (min-width: 768px) {
           width: size(601);
         }
-
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          user-select: none;
-          -webkit-user-drag: none;
-          pointer-events: none;
         }
       }
 
@@ -431,7 +378,6 @@ onBeforeUnmount(() => {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-50%);
   }
@@ -504,15 +450,12 @@ onBeforeUnmount(() => {
     color: #fff;
     text-align: left;
     padding: 0 sizem(10);
-
     @media screen and (min-width: 768px) {
       padding: 0;
     }
-
     h3 {
       font-size: sizem(24);
       font-weight: 500;
-
       @media screen and (min-width: 768px) {
         font-size: size(48);
       }
@@ -521,7 +464,6 @@ onBeforeUnmount(() => {
     .desc {
       font-size: sizem(10);
       opacity: 0.8;
-
       @media screen and (min-width: 768px) {
         font-size: size(16);
       }
@@ -534,7 +476,6 @@ onBeforeUnmount(() => {
 .fade-leave-active {
   transition: opacity 0.4s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
