@@ -121,18 +121,15 @@ const loop = () => {
     offset.value -= speed
   }
 
-  if (Math.abs(offset.value) >= contentWidth / 2) {
+  const halfWidth = contentWidth / 2
+  // 使用取餘數概念或簡單判斷
+  if (offset.value <= -halfWidth) {
     offset.value = 0
+  } else if (offset.value > 0) {
+    offset.value = -halfWidth
   }
 
   rafId = requestAnimationFrame(loop)
-}
-
-// ===== 滑鼠 =====
-const onMouseDown = (e) => {
-  isDragging = true
-  startX = e.clientX
-  startOffset = offset.value
 }
 
 const onMouseMove = (e) => {
@@ -169,8 +166,20 @@ const onMouseLeave = () => {
 
 // ===== lifecycle =====
 onMounted(() => {
-  contentWidth = contentRef.value.scrollWidth
-  loop()
+  // 使用 nextTick 並配合小延遲，確保 iOS 已完成佈局渲染
+  setTimeout(() => {
+    if (contentRef.value) {
+      // 獲取內容寬度
+      contentWidth = contentRef.value.scrollWidth;
+      
+      // 針對 iOS 容錯：如果抓不到寬度，則手動計算 (項目數量 * 寬度)
+      if (contentWidth === 0) {
+        const items = contentRef.value.querySelectorAll('.marquee-item');
+        contentWidth = items.length * window.innerWidth; 
+      }
+    }
+    loop();
+  }, 300); // 稍微加長延遲確保穩定
 })
 
 onBeforeUnmount(() => {
@@ -345,11 +354,16 @@ onBeforeUnmount(() => {
 
     .marquee-content {
       display: flex;
-      /*  animation: run 50s linear infinite;
-     &:hover {
-        animation-play-state: paused;
-      }
-      */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  
+  /* 強制讓 iOS 保持在同一渲染層級，避免重疊 */
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  
+  /* 確保寬度是內容量的總和，而非被容器限制 */
+  width: max-content;
     }
 
     .marquee-group {
@@ -359,14 +373,19 @@ onBeforeUnmount(() => {
     .marquee-item {
       cursor: pointer;
       user-select: none;
-      margin-right: sizem(5);
-      position: relative;
-      flex: 0 0 100vw; // 手機版強制為 100% 視窗寬度
+      margin-right: sizem(5);position: relative;
+  
+  // 優化：明確指定寬度，防止 iOS 下 flex 壓縮導致重疊
+  flex: 0 0 100vw; 
+  width: 100vw;      
+  max-width: 100vw;
 
-      @media screen and (min-width: 768px) {
-        flex: 0 0 auto; // 電腦版恢復以內容寬度為主
-        margin-right: size(10);
-      }
+  @media screen and (min-width: 768px) {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    margin-right: size(10);
+  }
 
       .img-box {
         position: relative;
